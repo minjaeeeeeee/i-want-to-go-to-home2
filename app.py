@@ -50,31 +50,30 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-# 약 데이터 (대체 이미지 URL, 가격, 주의사항, 용량 포함)
+# 약 데이터 (이미지는 남아있지만 사용 안 함)
 medications = [
     {
-    "name": "멀미약 디멘히드리네이트",
-    "symptoms": ["구토", "어지러움"],
-    "min_age": 6,
-    "max_age": 120,
-    "min_weight": 20,
-    "price": 12000,
-    "image": "https://images.unsplash.com/photo-1588776814546-4b6e5d31e0cc?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80",
-    "caution": "졸음 유발 가능, 운전 주의",
-    "dose_per_kg": 0
-},
-{
-    "name": "소화제 메토클로프라미드",
-    "symptoms": ["구토", "소화불량"],
-    "min_age": 12,
-    "max_age": 120,
-    "min_weight": 30,
-    "price": 14000,
-    "image": "https://images.unsplash.com/photo-1556228724-8ff4e57a90a6?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80",
-    "caution": "장기간 사용 시 신경계 부작용 주의",
-    "dose_per_kg": 0
-},
-
+        "name": "멀미약 디멘히드리네이트",
+        "symptoms": ["구토", "어지러움"],
+        "min_age": 6,
+        "max_age": 120,
+        "min_weight": 20,
+        "price": 12000,
+        "image": "https://images.unsplash.com/photo-1588776814546-4b6e5d31e0cc?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80",
+        "caution": "졸음 유발 가능, 운전 주의",
+        "dose_per_kg": 0
+    },
+    {
+        "name": "소화제 메토클로프라미드",
+        "symptoms": ["구토", "소화불량"],
+        "min_age": 12,
+        "max_age": 120,
+        "min_weight": 30,
+        "price": 14000,
+        "image": "https://images.unsplash.com/photo-1556228724-8ff4e57a90a6?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80",
+        "caution": "장기간 사용 시 신경계 부작용 주의",
+        "dose_per_kg": 0
+    },
     {
         "name": "비타민 B 컴플렉스",
         "symptoms": ["피로"],
@@ -97,7 +96,7 @@ medications = [
         "caution": "카페인 함유, 저녁 복용 시 수면 방해 주의",
         "dose_per_kg": 0
     },
-   {
+    {
         "name": "타이레놀 성인용",
         "symptoms": ["두통", "발열", "근육통"],
         "min_age": 12,
@@ -196,17 +195,14 @@ if st.button("💡 약 추천 받기"):
             for med in matched[:2]:
                 with st.container():
                     st.markdown('<div class="med-card">', unsafe_allow_html=True)
-                    cols = st.columns([1, 2])
-                    with cols[0]:
-                        st.image(med["image"], width=120)
-                    with cols[1]:
-                        st.markdown(f'<div class="med-name">{med["name"]} <span class="price-tag">{med["price"]}원</span></div>', unsafe_allow_html=True)
-                        st.markdown(f'<div class="caution-text">⚠️ 주의사항: {med["caution"]}</div>', unsafe_allow_html=True)
-                        if med["dose_per_kg"] > 0:
-                            dose_mg = med["dose_per_kg"] * weight
-                            st.markdown(f'<div class="dose-box">💊 권장 복용량: 약 {dose_mg:.1f} mg (몸무게 기준)</div>', unsafe_allow_html=True)
-                        else:
-                            st.markdown(f'<div class="dose-box">💊 권장 복용량: 정해진 용량으로 복용하세요.</div>', unsafe_allow_html=True)
+                    # 이미지 제거 후 텍스트 정보만 표시
+                    st.markdown(f'<div class="med-name">{med["name"]} <span class="price-tag">{med["price"]}원</span></div>', unsafe_allow_html=True)
+                    st.markdown(f'<div class="caution-text">⚠️ 주의사항: {med["caution"]}</div>', unsafe_allow_html=True)
+                    if med["dose_per_kg"] > 0:
+                        dose_mg = med["dose_per_kg"] * weight
+                        st.markdown(f'<div class="dose-box">💊 권장 복용량: 약 {dose_mg:.1f} mg (몸무게 기준)</div>', unsafe_allow_html=True)
+                    else:
+                        st.markdown(f'<div class="dose-box">💊 권장 복용량: 정해진 용량으로 복용하세요.</div>', unsafe_allow_html=True)
                     st.markdown('</div>', unsafe_allow_html=True)
         else:
             st.error("조건에 맞는 약을 찾을 수 없습니다. 전문의와 상담하세요.")

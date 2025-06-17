@@ -53,6 +53,29 @@ st.markdown("""
 # 약 데이터 (대체 이미지 URL, 가격, 주의사항, 용량 포함)
 medications = [
     {
+    "name": "멀미약 디멘히드리네이트",
+    "symptoms": ["구토", "어지러움"],
+    "min_age": 6,
+    "max_age": 120,
+    "min_weight": 20,
+    "price": 12000,
+    "image": "https://images.unsplash.com/photo-1588776814546-4b6e5d31e0cc?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80",
+    "caution": "졸음 유발 가능, 운전 주의",
+    "dose_per_kg": 0
+},
+{
+    "name": "소화제 메토클로프라미드",
+    "symptoms": ["구토", "소화불량"],
+    "min_age": 12,
+    "max_age": 120,
+    "min_weight": 30,
+    "price": 14000,
+    "image": "https://images.unsplash.com/photo-1556228724-8ff4e57a90a6?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80",
+    "caution": "장기간 사용 시 신경계 부작용 주의",
+    "dose_per_kg": 0
+},
+
+    {
         "name": "비타민 B 컴플렉스",
         "symptoms": ["피로"],
         "min_age": 15,

@@ -53,6 +53,28 @@ st.markdown("""
 # 약 데이터 (대체 이미지 URL, 가격, 주의사항, 용량 포함)
 medications = [
     {
+        "name": "비타민 B 컴플렉스",
+        "symptoms": ["피로"],
+        "min_age": 15,
+        "max_age": 120,
+        "min_weight": 30,
+        "price": 15000,
+        "image": "https://images.unsplash.com/photo-1588776814546-4b6e5d31e0cc?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80",
+        "caution": "과다 복용 시 위장 장애 가능",
+        "dose_per_kg": 0
+    },
+    {
+        "name": "에너지 영양제",
+        "symptoms": ["피로"],
+        "min_age": 12,
+        "max_age": 120,
+        "min_weight": 35,
+        "price": 18000,
+        "image": "https://images.unsplash.com/photo-1556228724-8ff4e57a90a6?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80",
+        "caution": "카페인 함유, 저녁 복용 시 수면 방해 주의",
+        "dose_per_kg": 0
+    },
+   {
         "name": "타이레놀 성인용",
         "symptoms": ["두통", "발열", "근육통"],
         "min_age": 12,
